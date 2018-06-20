@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="刚刚配好了Hexo，对比Jekyll来看，Hexo上next主题支持的更好，个人比较喜欢mist，所以不得不从Jekyll转到Hexo上来。但是hexo的备份明显不如Jekyll好做，git上master分支不存储博客源文件，备份源文件略显麻烦。网上资料比较杂乱，自己记录并整理一下搭建与备份过程，以备后用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-20T13:28:21.190Z">
+<meta property="og:updated_time" content="2018-06-20T13:35:57.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从Jekyll到Hexo的过程和一些坑">
 <meta name="twitter:description" content="刚刚配好了Hexo，对比Jekyll来看，Hexo上next主题支持的更好，个人比较喜欢mist，所以不得不从Jekyll转到Hexo上来。但是hexo的备份明显不如Jekyll好做，git上master分支不存储博客源文件，备份源文件略显麻烦。网上资料比较杂乱，自己记录并整理一下搭建与备份过程，以备后用。">
@@ -334,7 +334,7 @@
       
         <p>刚刚配好了Hexo，对比Jekyll来看，Hexo上next主题支持的更好，个人比较喜欢mist，所以不得不从Jekyll转到Hexo上来。但是hexo的备份明显不如Jekyll好做，git上master分支不存储博客源文件，备份源文件略显麻烦。网上资料比较杂乱，自己记录并整理一下搭建与备份过程，以备后用。</p>
 <a id="more"></a>
-<h1 id="一、Hexo-NexT-Github-Page建站"><a href="#一、Hexo-NexT-Github-Page建站" class="headerlink" title="一、Hexo+NexT+Github Page建站"></a>一、Hexo+NexT+Github Page建站</h1><p>其实Hexo和NexT官方文档上面步骤都是全的，但是对于初次接触Hexo的人来说过程步骤不太连贯，不太友好。本文章偷懒，并不打算记录Github部分，啥时候心情好可能会补上。</p>
+<h1 id="Hexo-NexT-Github-Page建站"><a href="#Hexo-NexT-Github-Page建站" class="headerlink" title="Hexo+NexT+Github Page建站"></a>Hexo+NexT+Github Page建站</h1><p>其实Hexo和NexT官方文档上面步骤都是全的，但是对于初次接触Hexo的人来说过程步骤不太连贯，不太友好。本文章偷懒，并不打算记录Github部分，啥时候心情好可能会补上。</p>
 <h4 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h4><ul>
 <li>一个Github Page仓库</li>
 <li>node.js</li>
@@ -457,11 +457,13 @@ scheme: Mist
 #scheme: Gemini
 </code></pre></blockquote>
 <p>修改完后，重新部署博客即可。</p>
-<h1 id="二、备份博客源文件"><a href="#二、备份博客源文件" class="headerlink" title="二、备份博客源文件"></a>二、备份博客源文件</h1><h1 id="三、一些坑"><a href="#三、一些坑" class="headerlink" title="三、一些坑"></a>三、一些坑</h1><h5 id="坑1-4000端口问题"><a href="#坑1-4000端口问题" class="headerlink" title="坑1-4000端口问题"></a>坑1-4000端口问题</h5><p> 在建立本地博客过程中，若访问本地博客失败，可能是由于本地4000端口被占用，可通过以下命令来查询端口占用程序并杀死 </p>
-<blockquote>
+<h1 id="备份博客源文件"><a href="#备份博客源文件" class="headerlink" title="备份博客源文件"></a>备份博客源文件</h1><h1 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h1><ol>
+<li>4000端口问题<br>在建立本地博客过程中，若访问本地博客失败，可能是由于本地4000端口被占用，可通过以下命令来查询端口占用程序并杀死 <blockquote>
 <pre><code>&gt; netstat -nao|findstr &quot;4000&quot; #查询占用4000端口的程序，返回例如，&apos;TCP 127.0.0.1:4000 0.0.0.0:0 LISTENING 9220&apos;，其中9220为占用程序的PID
 &gt; tasklist |findstr&quot;9220&quot; #查询PID为9220的程序名称，后可通过任务管理器或命令行杀死占用端口的程序，杀死后，即可打开本地博客。
 </code></pre></blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -617,7 +619,7 @@ scheme: Mist
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Hexo-NexT-Github-Page建站"><span class="nav-number">1.</span> <span class="nav-text">一、Hexo+NexT+Github Page建站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预备工作"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">预备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#博客搭建过程"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">博客搭建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新文章部署过程"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">新文章部署过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NexT主题"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">NexT主题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、备份博客源文件"><span class="nav-number">2.</span> <span class="nav-text">二、备份博客源文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、一些坑"><span class="nav-number">3.</span> <span class="nav-text">三、一些坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#坑1-4000端口问题"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">坑1-4000端口问题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-NexT-Github-Page建站"><span class="nav-number">1.</span> <span class="nav-text">Hexo+NexT+Github Page建站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预备工作"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">预备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#博客搭建过程"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">博客搭建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新文章部署过程"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">新文章部署过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NexT主题"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">NexT主题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#备份博客源文件"><span class="nav-number">2.</span> <span class="nav-text">备份博客源文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些坑"><span class="nav-number">3.</span> <span class="nav-text">一些坑</span></a></li></ol></div>
             
 
           </div>
