@@ -1,5 +1,5 @@
 ---
-title: Jekyll到Hexo的一些坑
+title: Jekyll到Hexo && 一些坑
 date: 2018/6/21 10:00:00
 updated: 2018/6/22 09:48:00
 categories:
@@ -65,7 +65,7 @@ categories:
         >     deploy:
         >       type: git
         >       repository: https://github.com/Leeyaa/Leeyaa.github.io
-        >       branch: master
+        >       branch: master # 此处指明静态博客分支，与后文中备份概念相关
 
         修改完成之后，可以运行以下命令来进行部署：
 
@@ -168,6 +168,40 @@ Hexo提供给作者一键部署的功能，并给予了一定的debug信息，�
 	修改完后，重新部署博客即可。
 
 ## 备份博客源文件
+Hexo与Jekyll不同，是将源文件生成网页后存放在GitHub上的，所以源文件不能通过GitHub来备份，如果换电脑，或者电脑系统崩溃，Hexo源文件就会丢失。常用的办法是在username.github.io库中新建一个分支来存储、备份源文件，换电脑以后，只要将源文件下载下来，再进行环境配置，便可使用。
+
+1. 备份
+	- 首先，在网页库user.github.io中**新建一个backup分支**.
+	- ** 将上述backup分支设置为默认分支 ** *ps，其实静态网页发布的master分支对于用户来说是不可修改的，只需要我们在部署的时候指定了master分支，之后就完全不用手动去git操作master分支。而backup分支是需要我们经常来进行git操作的，所以这里将backup分支设为默认分支。*
+	- **将backup分支clone到本地** ，我的文件夹名是Leeyaa.github.io。以后编辑博客，更改博客都会在这个分支文件夹中进行。这里有两种克隆指定分支的方法
+		1. git clone -b backup https://github.com/Leeyaa/Leeyaa.github.io
+		2. 通过Github客户端
+	- **将除了.git文件夹以外的文件全都删除**
+	- 将本地博客目录下的**_config.yml  themes/  source  scffolds/  package.json  .gitignore**几个文件与文件夹拷贝到backup分支目录。 * 我们实际需要备份的也就是这几个文件 *
+	-** 将themes/next文件下的.git删除**，否则themes文件夹无法上传
+	- 在分支文件夹中git bash执行以下命令**配置hexo git部署环境*** 这里可以检查分支是否为backup分支
+		>     npm install hexo-deployer-git
+		>     npm install
+	- 在分支文件夹中使用git bash执行下面命令，**将backup分支的博客源文件部署到Github page上**。* 这样就完成了从本地到分支的备份迁移 *
+		>     hexo generate
+		>     hexo deploy
+	- 将**分支文件夹提交到github**，完成备份过程。
+		>     git add .
+		>     git commit -m "注释信息"
+		>     git push origin backup  #backup为分支名
+		
+2. 恢复
+	在Github上已经备份了完整的博客源文件，想要在其他电脑上恢复，只需要将backup分支clone下来，再搭建hexo部署就可以了。下面给出恢复过程:
+	- 将backup分支clone到本地
+	- 安装hexo环境
+		- node.js
+		- git
+	- 在分支文件夹中执行以下命令安装部署组件以及其他组件：
+	>     npm install hexo-cli
+	>     npm install hexo-deployer-git --save
+	>     npm install
+
+	这样，就完成了整个博客的恢复。
 
 
 ## 一些坑
