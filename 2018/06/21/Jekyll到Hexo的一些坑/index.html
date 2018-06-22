@@ -382,13 +382,16 @@ $ hexo deploy
 </li>
 </ul>
 </li>
-<li><p><strong> 将本地博客部署到Github page </strong><br>Hexo有两种方式访问Github Page,一种通过SSH，一种通过HTTPS。HTTPS方式配置较简单，但每次需要上传密码。SSH方式配置略微复杂，但是一次配置，终身受用。</p>
+<li><p><strong> 将本地博客部署到Github page </strong></p>
+<p> Hexo有两种方式访问Github Page,一种通过SSH，一种通过HTTPS。HTTPS方式配置较简单，但每次需要上传密码。SSH方式配置略微复杂，但是一次配置，终身受用。</p>
 <ul>
-<li>配置之前，需要先安装hexo-deployer-git 扩展组件，来支持hexo部署git。使用npm就可以，命令如下:<blockquote>
+<li><p>配置之前，需要先安装hexo-deployer-git 扩展组件，来支持hexo部署git。使用npm就可以，命令如下:</p>
+<blockquote>
 <pre><code>npm install hexo-deployer-git --save
 </code></pre></blockquote>
 </li>
-<li><p>HTTPS方式<br>  使用Hexo配置git非常方便，只需要修改配置文件即可。我们所建博客目录下面，会存在两个_config.yml，一个存在于博客目录根目录，NexT官方文档称为<strong> 站点配置文件 </strong>，主要包含Hexo本身配置。另一个存在于themes主题中，称为<strong> 主题配置文件 </strong>，用来修改、美化主题。</p>
+<li><p>HTTPS方式</p>
+<p>  使用Hexo配置git非常方便，只需要修改配置文件即可。我们所建博客目录下面，会存在两个_config.yml，一个存在于博客目录根目录，NexT官方文档称为<strong> 站点配置文件 </strong>，主要包含Hexo本身配置。另一个存在于themes主题中，称为<strong> 主题配置文件 </strong>，用来修改、美化主题。</p>
 <p>  HTTPS方式访问git只要修改主题文件中deployment选项即可。</p>
 <blockquote>
 <pre><code># Deployment
@@ -412,21 +415,23 @@ hexo deploy(可缩写为d)  # 部署
 <blockquote>
 <pre><code>$ git config --global user.name &quot;Leeyaa&quot;
 $ git config --global user.email Leeyaa@example.com
-</code></pre><p>git是一个蛮好用的东西，正在慢慢的边用边学。</p>
-</blockquote>
+</code></pre></blockquote>
+<p>git是一个蛮好用的东西，正在慢慢的边用边学。</p>
 </li>
 <li><p>有了上述，我们就可以根据上面配置的用户名与邮箱生成SSH公钥私钥（RSA算法），我们将公钥发给GitHub的SSH管理员时，我们如果拿着私钥去访问GitHub，GitHub SSH管理员就可以进行公钥私钥配对，来完成认证。当然，第一次将公钥给GitHub时，GitHub管理员是需要我们输入密码来认证的。</p>
 <ul>
-<li>确认配置过git用户名与邮箱之后，运行以下命令，生成公钥私钥，敲三次回车，位置与配置默认就可以：<blockquote>
+<li><p>确认配置过git用户名与邮箱之后，运行以下命令，生成公钥私钥，敲三次回车，位置与配置默认就可以：</p>
+<blockquote>
 <pre><code>ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; # 邮箱为GitHub邮箱
-</code></pre><p>公钥私钥位置在：</p>
+</code></pre></blockquote>
+<p>公钥私钥位置在：</p>
+<blockquote>
 <pre><code>C:\Users\LIN\.ssh
 </code></pre></blockquote>
 </li>
 </ul>
 </li>
-<li><p>生成公钥私钥后，将公钥复制，打开GitHub -&gt; settings -&gt; SSH and GPG keys -&gt; New SSH key -&gt; title随便起，将公钥复制到key框中 -&gt; Add SSH key -&gt; 输入GitHub密码 -&gt; 成功。到这里，我们将公钥赋给了GitHub管理员。</p>
-</li>
+<li>生成公钥私钥后，将公钥复制，打开GitHub -&gt; settings -&gt; SSH and GPG keys -&gt; New SSH key -&gt; title随便起，将公钥复制到key框中 -&gt; Add SSH key -&gt; 输入GitHub密码 -&gt; 成功。到这里，我们将公钥赋给了GitHub管理员。</li>
 <li><p>接下来，与HTTP方式相同，修改站点配置文件，如下：</p>
 <blockquote>
 <pre><code># Deployment
@@ -452,33 +457,77 @@ hexo generate
 hexo deploy(可缩写为d)
 </code></pre></blockquote>
 <p>Hexo提供给作者一键部署的功能，并给予了一定的debug信息，方便调试与部署，若站点配置文件或其他文件出现bug，部署时会返回不同的debug信息，需仔细观察。</p>
-<h3 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h3><p>Hexo自带主题比较丑，我也是奔着NexT.mist来的。Hexo更换主题非常方便，只需要将主题clone到blogpath/themes/下，然后修改站点配置文件中theme项即可。</p>
+<h3 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h3><ul>
+<li><p>Q1 怎么添加分类与标签</p>
+<ol>
+<li><p>修改<strong> 主题配置文件 </strong>中menu选项，将需要的链接标签打开：</p>
+<blockquote>
+<pre><code>menu:
+home: / || home
+categories: /categories/ || th
+archives: /archives/ || archive
+about: /about/ || user
+#tags: /tags/ || tags
+#schedule: /schedule/ || calendar
+#sitemap: /sitemap.xml || sitemap
+#commonweal: /404/ || heartbeat
+</code></pre></blockquote>
+</li>
+<li><p>上面只是在界面上生成了链接图标，但是并没有界面，生成界面运行如下：</p>
+<blockquote>
+<pre><code>hexo new page &quot;categories&quot;
+</code></pre></blockquote>
+</li>
+<li><p>生成页面之后，图标链接就可以打开了，但是打开后的网页没有内容，需要修改source/categories目录下的index.md文件,添加type行：</p>
+<blockquote>
+<pre><code>---
+title: categories
+date: 2018-06-21 10:04:52
+type: &quot;categories&quot;
+---
+</code></pre></blockquote>
+</li>
+<li><p>这样，categories页面就完成了。</p>
+</li>
+</ol>
+</li>
+<li><p>Q2 侧边栏头像怎么显示？</p>
+<ol>
+<li>将头像存放在\themes\next\source\images里面</li>
+<li>修改主题配置文件avatar项，添加路径</li>
+<li>注意，参数添加的路径中没有\themes\next\source\，因为发布到github上images是在根目录下。</li>
+</ol>
+</li>
+<li><p>Q3 怎么更换主题模式<br>  Hexo自带主题比较丑，我也是奔着NexT.mist来的。Hexo更换主题非常方便，只需要将主题clone到blogpath/themes/下，然后修改站点配置文件中theme项即可。</p>
 <blockquote>
 <pre><code>theme: next
 </code></pre></blockquote>
-<p>theme自带三种主题模式，可以在主题配置文件中修改scheme项：</p>
+<p>  theme自带三种主题模式，可以在主题配置文件中修改scheme项：</p>
 <blockquote>
 <pre><code># ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
-</code></pre></blockquote>
-<blockquote>
-<pre><code># Schemes
+# Schemes
 #scheme: Muse
 scheme: Mist
 #scheme: Pisces
 #scheme: Gemini
 </code></pre></blockquote>
-<p>修改完后，重新部署博客即可。</p>
+<p>  修改完后，重新部署博客即可。</p>
+</li>
+</ul>
 <h2 id="备份博客源文件"><a href="#备份博客源文件" class="headerlink" title="备份博客源文件"></a>备份博客源文件</h2><h2 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h2><ol>
 <li><p>4000端口问题</p>
 <p>在建立本地博客过程中，若访问本地博客失败，可能是由于本地4000端口被占用，可通过以下命令来查询端口占用程序并杀死 </p>
-</li>
-</ol>
 <blockquote>
 <pre><code>&gt; netstat -nao|findstr &quot;4000&quot; #查询占用4000端口的程序，返回例如，&apos;TCP 127.0.0.1:4000 0.0.0.0:0 LISTENING 9220&apos;，其中9220为占用程序的PID
 &gt; tasklist |findstr&quot;9220&quot; #查询PID为9220的程序名称，后可通过任务管理器或命令行杀死占用端口的程序，杀死后，即可打开本地博客。
 </code></pre></blockquote>
+</li>
+<li><p>使用haroopad的bug </p>
+<p>使用haroopad修改md文章，若点击ctrl+s对文章进行保存，下一次打开文档，haroopad会自动在所有的末尾处添加换行符，是多添加一次！会严重干扰md格式。目前还未找到问题所在。</p>
+</li>
+</ol>
 
       
     </div>
