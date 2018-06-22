@@ -82,14 +82,14 @@
 <meta name="description" content="刚刚配好了Hexo，对比Jekyll来看，Hexo上next主题支持的更好，个人比较喜欢mist，所以不得不从Jekyll转到Hexo上来。但是hexo的备份明显不如Jekyll好做，git上master分支不存储博客源文件，备份源文件略显麻烦。网上资料比较杂乱，自己记录并整理一下搭建与备份过程，以备后用。">
 <meta name="keywords" content="hello JLU~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从Jekyll到Hexo的过程和一些坑">
+<meta property="og:title" content="Jekyll到Hexo的一些坑">
 <meta property="og:url" content="http://yoursite.com/2018/06/21/Jekyll到Hexo的一些坑/index.html">
 <meta property="og:site_name" content="LIN">
 <meta property="og:description" content="刚刚配好了Hexo，对比Jekyll来看，Hexo上next主题支持的更好，个人比较喜欢mist，所以不得不从Jekyll转到Hexo上来。但是hexo的备份明显不如Jekyll好做，git上master分支不存储博客源文件，备份源文件略显麻烦。网上资料比较杂乱，自己记录并整理一下搭建与备份过程，以备后用。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-06-22T01:48:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从Jekyll到Hexo的过程和一些坑">
+<meta name="twitter:title" content="Jekyll到Hexo的一些坑">
 <meta name="twitter:description" content="刚刚配好了Hexo，对比Jekyll来看，Hexo上next主题支持的更好，个人比较喜欢mist，所以不得不从Jekyll转到Hexo上来。但是hexo的备份明显不如Jekyll好做，git上master分支不存储博客源文件，备份源文件略显麻烦。网上资料比较杂乱，自己记录并整理一下搭建与备份过程，以备后用。">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>从Jekyll到Hexo的过程和一些坑 | LIN</title>
+  <title>Jekyll到Hexo的一些坑 | LIN</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从Jekyll到Hexo的过程和一些坑</h1>
+          <h1 class="post-title" itemprop="name headline">Jekyll到Hexo的一些坑</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
                   </a>
                 </span>
 
@@ -346,149 +346,110 @@
 <a id="more"></a>
 <h2 id="Hexo-NexT-Github-Page建站"><a href="#Hexo-NexT-Github-Page建站" class="headerlink" title="Hexo+NexT+Github Page建站"></a>Hexo+NexT+Github Page建站</h2><p>其实Hexo和NexT官方文档上面步骤都是全的，但是对于初次接触Hexo的人来说过程步骤不太连贯，不太友好。本文章偷懒，并不打算记录Github部分，啥时候心情好可能会补上。</p>
 <h3 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h3><ul>
-<li><p>一个Github Page仓库</p>
-</li>
-<li><p>node.js</p>
-</li>
-<li><p>git</p>
-</li>
-<li><p>hexo-cli</p>
-</li>
-<li><p>next（主题，美化，非必选）</p>
-</li>
+<li>一个Github Page仓库</li>
+<li>node.js</li>
+<li>git</li>
+<li>hexo-cli</li>
+<li>next（主题，美化，非必选）</li>
 </ul>
 <h3 id="博客搭建过程"><a href="#博客搭建过程" class="headerlink" title="博客搭建过程"></a>博客搭建过程</h3><ol>
-<li><p><strong> node.js与git </strong>都可以进行傻瓜式安装，注意安装的时候选择add path在系统中添加环境变量就可以。</p>
-</li>
+<li><strong> node.js与git </strong>都可以进行傻瓜式安装，注意安装的时候选择add path在系统中添加环境变量就可以。</li>
 <li><p><strong> 使用npm安装hexo </strong>，官方推荐使用npm进行安装。npm是nodejs自带的包管理工具，方便对三方包进行管理和安装。npm可以在nodejs自带的Node.js commond prompt中直接运行，安装命令如下，</p>
-</li>
-</ol>
 <blockquote>
 <pre><code>$ npm install -g hexo-cli
 </code></pre></blockquote>
-<ol start="3">
-<li><strong> 建立本地博客 </strong></li>
+</li>
+<li><p><strong> 建立本地博客 </strong><br>上传到github以前，先建立本地博客，方便测试。</p>
+<ul>
+<li><p>建一个文件夹存放你的博客，命名随意。比如我的为：</p>
+<blockquote>
+<pre><code>E:\LIN\Workspace\gitpage
+</code></pre></blockquote>
+</li>
+<li><p>gitbash中进入所建目录，运行以下命令，将博客初始化完毕：</p>
+<blockquote>
+<pre><code>$ hexo init #初始化hexo博客
+$ npm install #安装必要组件
+</code></pre></blockquote>
+</li>
+<li><p>初始化完成后，系统会在博客中自动生成一篇名为hello world的文章，将初始化完的博客部署到本地，即可通过浏览器访问            localhost:4000来访问本地博客，部署命令：</p>
+<blockquote>
+<pre><code>$ hexo generate
+$ hexo deploy
+</code></pre></blockquote>
+</li>
+<li><p>致此，已经搭建完成一个本地Hexo博客。</p>
+</li>
+</ul>
+</li>
+<li><p><strong> 将本地博客部署到Github page </strong><br>Hexo有两种方式访问Github Page,一种通过SSH，一种通过HTTPS。HTTPS方式配置较简单，但每次需要上传密码。SSH方式配置略微复杂，但是一次配置，终身受用。</p>
+<ul>
+<li>配置之前，需要先安装hexo-deployer-git 扩展组件，来支持hexo部署git。使用npm就可以，命令如下:<blockquote>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre></blockquote>
+</li>
+<li><p>HTTPS方式<br>  使用Hexo配置git非常方便，只需要修改配置文件即可。我们所建博客目录下面，会存在两个_config.yml，一个存在于博客目录根目录，NexT官方文档称为<strong> 站点配置文件 </strong>，主要包含Hexo本身配置。另一个存在于themes主题中，称为<strong> 主题配置文件 </strong>，用来修改、美化主题。</p>
+<p>  HTTPS方式访问git只要修改主题文件中deployment选项即可。</p>
+<blockquote>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: https://github.com/Leeyaa/Leeyaa.github.io
+  branch: master
+</code></pre></blockquote>
+<p>  修改完成之后，可以运行以下命令来进行部署：</p>
+<blockquote>
+<pre><code>hexo clean            #清除之前静态页面
+hexo generate            #生成静态页面
+hexo deploy(可缩写为d)  # 部署
+</code></pre></blockquote>
+</li>
+<li><p>SSH</p>
+<p>SSH方式略微复杂</p>
+<ul>
+<li><p>首先，我们在第一次安装git时，是有配置用户名和邮箱的，每次git上传或者clone的时候，git都会将该用户名与邮箱上传，用户名邮箱就保存在C:\Users\USERNAME或C:\Users\Administrator的.gitconfig文件中。如果是第一次配置git，请参考下面两条命令：</p>
+<blockquote>
+<pre><code>$ git config --global user.name &quot;Leeyaa&quot;
+$ git config --global user.email Leeyaa@example.com
+</code></pre><p>git是一个蛮好用的东西，正在慢慢的边用边学。</p>
+</blockquote>
+</li>
+<li><p>有了上述，我们就可以根据上面配置的用户名与邮箱生成SSH公钥私钥（RSA算法），我们将公钥发给GitHub的SSH管理员时，我们如果拿着私钥去访问GitHub，GitHub SSH管理员就可以进行公钥私钥配对，来完成认证。当然，第一次将公钥给GitHub时，GitHub管理员是需要我们输入密码来认证的。</p>
+<ul>
+<li>确认配置过git用户名与邮箱之后，运行以下命令，生成公钥私钥，敲三次回车，位置与配置默认就可以：<blockquote>
+<pre><code>ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; # 邮箱为GitHub邮箱
+</code></pre><p>公钥私钥位置在：</p>
+<pre><code>C:\Users\LIN\.ssh
+</code></pre></blockquote>
+</li>
+</ul>
+</li>
+<li><p>生成公钥私钥后，将公钥复制，打开GitHub -&gt; settings -&gt; SSH and GPG keys -&gt; New SSH key -&gt; title随便起，将公钥复制到key框中 -&gt; Add SSH key -&gt; 输入GitHub密码 -&gt; 成功。到这里，我们将公钥赋给了GitHub管理员。</p>
+</li>
+<li><p>接下来，与HTTP方式相同，修改站点配置文件，如下：</p>
+<blockquote>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:Leeyaa/Leeyaa.github.io.git
+  branch: master
+</code></pre><p>可以看到，只有repository一项不同，因为我们是通过ssh访问，所以需要库的ssh地址。SSH地址可以在GitHub -&gt; GitHub page库 -&gt; clone or download -&gt; Use SSH获取</p>
+</blockquote>
+</li>
+<li><p>之后步骤同HTTPS，将Hexo部署到GitHub我们就可以看到博客界面了。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<p>上传到github以前，先建立本地博客，方便测试。</p>
-<pre><code>- 建一个文件夹存放你的博客，命名随意。比如我的为：
-
-&gt;     E:\LIN\Workspace\gitpage
-
-
-
-- gitbash中进入所建目录，运行以下命令，将博客初始化完毕：
-
-&gt;     $ hexo init #初始化hexo博客
-
-&gt;     $ npm install #安装必要组件
-
-
-
-- 初始化完成后，系统会在博客中自动生成一篇名为hello world的文章，将初始化完的博客部署到本地，即可通过浏览器访问            localhost:4000来访问本地博客，部署命令：
-
-&gt;     $ hexo generate
-
-&gt;     $ hexo deploy
-
-- 致此，已经搭建完成一个本地Hexo博客。
-</code></pre><ol start="4">
-<li><strong> 将本地博客部署到Github page </strong></li>
-</ol>
-<p>Hexo有两种方式访问Github Page,一种通过SSH，一种通过HTTPS。HTTPS方式配置较简单，但每次需要上传密码。SSH方式配置略微复杂，但是一次配置，终身受用。</p>
-<pre><code>- 配置之前，需要先安装hexo-deployer-git 扩展组件，来支持hexo部署git。使用npm就可以，命令如下:
-
-&gt;     npm install hexo-deployer-git --save
-
-
-
-- HTTPS方式
-
-    使用Hexo配置git非常方便，只需要修改配置文件即可。我们所建博客目录下面，会存在两个_config.yml，一个存在于博客目录根目录，NexT官方文档称为** 站点配置文件 **，主要包含Hexo本身配置。另一个存在于themes主题中，称为** 主题配置文件 **，用来修改、美化主题。
-
-    HTTPS方式访问git只要修改主题文件中deployment选项即可。
-
-    &gt;     # Deployment
-
-    &gt;     ## Docs: https://hexo.io/docs/deployment.html
-
-    &gt;     deploy:
-
-    &gt;       type: git
-
-    &gt;       repository: https://github.com/Leeyaa/Leeyaa.github.io
-
-    &gt;       branch: master
-
-
-
-    修改完成之后，可以运行以下命令来进行部署：
-
-    &gt;     hexo clean            #清除之前静态页面
-
-    &gt;     hexo generate            #生成静态页面
-
-    &gt;     hexo deploy(可缩写为d)  # 部署
-
-
-
-- SSH
-
-SSH方式略微复杂。
-
-    - 首先，我们在第一次安装git时，是有配置用户名和邮箱的，每次git上传或者clone的时候，git都会将该用户名与邮箱上传，用户名邮箱就保存在C:\Users\USERNAME或C:\Users\Administrator的.gitconfig文件中。如果是第一次配置git，请参考下面两条命令：
-
-    &gt;     $ git config --global user.name &quot;Leeyaa&quot;
-
-    &gt;     $ git config --global user.email Leeyaa@example.com
-
-
-
-    git是一个蛮好用的东西，正在慢慢的边用边学。
-
-
-
-    - 有了上述，我们就可以根据上面配置的用户名与邮箱生成SSH公钥私钥（RSA算法），我们将公钥发给GitHub的SSH管理员时，我们如果拿着私钥去访问GitHub，GitHub SSH管理员就可以进行公钥私钥配对，来完成认证。当然，第一次将公钥给GitHub时，GitHub管理员是需要我们输入密码来认证的。
-
-        - 确认配置过git用户名与邮箱之后，运行以下命令，生成公钥私钥，敲三次回车，位置与配置默认就可以：
-
-        &gt;     ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot; # 邮箱为GitHub邮箱
-
-        公钥私钥位置在：
-
-        &gt;     C:\Users\LIN\.ssh
-
-
-
-    - 生成公钥私钥后，将公钥复制，打开GitHub -&gt; settings -&gt; SSH and GPG keys -&gt; New SSH key -&gt; title随便起，将公钥复制到key框中 -&gt; Add SSH key -&gt; 输入GitHub密码 -&gt; 成功。到这里，我们将公钥赋给了GitHub管理员。
-
-    - 接下来，与HTTP方式相同，修改站点配置文件，如下：
-
-    &gt;     # Deployment
-
-    &gt;     ## Docs: https://hexo.io/docs/deployment.html
-
-    &gt;     deploy:
-
-    &gt;       type: git
-
-    &gt;       repository: git@github.com:Leeyaa/Leeyaa.github.io.git
-
-    &gt;       branch: master
-
-
-
-    可以看到，只有repository一项不同，因为我们是通过ssh访问，所以需要库的ssh地址。SSH地址可以在GitHub -&gt; GitHub page库 -&gt; clone or download -&gt; Use SSH获取
-
-    - 之后步骤同HTTPS，将Hexo部署到GitHub我们就可以看到博客界面了。
-</code></pre><h3 id="新文章部署过程"><a href="#新文章部署过程" class="headerlink" title="新文章部署过程"></a>新文章部署过程</h3><p>上述过程已经搭建了一个完整的博客，只不过主题有些丑而已。之后，我们就可以方便的发布新文章了。</p>
+<h3 id="新文章部署过程"><a href="#新文章部署过程" class="headerlink" title="新文章部署过程"></a>新文章部署过程</h3><p>上述过程已经搭建了一个完整的博客，只不过主题有些丑而已。之后，我们就可以方便的发布新文章了。</p>
 <blockquote>
 <pre><code>hexo clean
-</code></pre></blockquote>
-<blockquote>
-<pre><code>hexo generate
-</code></pre></blockquote>
-<blockquote>
-<pre><code>hexo deploy(可缩写为d)
+hexo generate
+hexo deploy(可缩写为d)
 </code></pre></blockquote>
 <p>Hexo提供给作者一键部署的功能，并给予了一定的debug信息，方便调试与部署，若站点配置文件或其他文件出现bug，部署时会返回不同的debug信息，需仔细观察。</p>
 <h3 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h3><p>Hexo自带主题比较丑，我也是奔着NexT.mist来的。Hexo更换主题非常方便，只需要将主题clone到blogpath/themes/下，然后修改站点配置文件中theme项即可。</p>
@@ -498,27 +459,15 @@ SSH方式略微复杂。
 <p>theme自带三种主题模式，可以在主题配置文件中修改scheme项：</p>
 <blockquote>
 <pre><code># ---------------------------------------------------------------
-</code></pre></blockquote>
-<blockquote>
-<pre><code># Scheme Settings
-</code></pre></blockquote>
-<blockquote>
-<pre><code># ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
 </code></pre></blockquote>
 <blockquote>
 <pre><code># Schemes
-</code></pre></blockquote>
-<blockquote>
-<pre><code>#scheme: Muse
-</code></pre></blockquote>
-<blockquote>
-<pre><code>scheme: Mist
-</code></pre></blockquote>
-<blockquote>
-<pre><code>#scheme: Pisces
-</code></pre></blockquote>
-<blockquote>
-<pre><code>#scheme: Gemini
+#scheme: Muse
+scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
 </code></pre></blockquote>
 <p>修改完后，重新部署博客即可。</p>
 <h2 id="备份博客源文件"><a href="#备份博客源文件" class="headerlink" title="备份博客源文件"></a>备份博客源文件</h2><h2 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h2><ol>
@@ -528,9 +477,7 @@ SSH方式略微复杂。
 </ol>
 <blockquote>
 <pre><code>&gt; netstat -nao|findstr &quot;4000&quot; #查询占用4000端口的程序，返回例如，&apos;TCP 127.0.0.1:4000 0.0.0.0:0 LISTENING 9220&apos;，其中9220为占用程序的PID
-</code></pre></blockquote>
-<blockquote>
-<pre><code>&gt; tasklist |findstr&quot;9220&quot; #查询PID为9220的程序名称，后可通过任务管理器或命令行杀死占用端口的程序，杀死后，即可打开本地博客。
+&gt; tasklist |findstr&quot;9220&quot; #查询PID为9220的程序名称，后可通过任务管理器或命令行杀死占用端口的程序，杀死后，即可打开本地博客。
 </code></pre></blockquote>
 
       
