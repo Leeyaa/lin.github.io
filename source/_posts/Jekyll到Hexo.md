@@ -171,8 +171,8 @@ Hexo提供给作者一键部署的功能，并给予了一定的debug信息，�
 Hexo与Jekyll不同，是将源文件生成网页后存放在GitHub上的，所以源文件不能通过GitHub来备份，如果换电脑，或者电脑系统崩溃，Hexo源文件就会丢失。常用的办法是在username.github.io库中新建一个分支来存储、备份源文件，换电脑以后，只要将源文件下载下来，再进行环境配置，便可使用。
 
 1. 备份
-	- 如果换电脑的话，先要将之前配置的SSH公钥私钥对进行备份
-	- 首先，在网页库user.github.io中**新建一个backup分支**.
+	- 首先，要将之前配置的SSH公钥私钥对进行备份，如果丢失掉，应该按照上面的SSH配置部分再配置一遍。
+	- 在网页库user.github.io中**新建一个backup分支**.
 	- ** 将上述backup分支设置为默认分支 ** *ps，其实静态网页发布的master分支对于用户来说是不可修改的，只需要我们在部署的时候指定了master分支，之后就完全不用手动去git操作master分支。而backup分支是需要我们经常来进行git操作的，所以这里将backup分支设为默认分支。*
 	- **将backup分支clone到本地** ，我的文件夹名是Leeyaa.github.io。以后编辑博客，更改博客都会在这个分支文件夹中进行。这里有两种克隆指定分支的方法
 		1. git clone -b backup https://github.com/Leeyaa/Leeyaa.github.io
@@ -194,7 +194,7 @@ Hexo与Jekyll不同，是将源文件生成网页后存放在GitHub上的，所�
 2. 恢复
 
 	在Github上已经备份了完整的博客源文件，想要在其他电脑上恢复，只需要将backup分支clone下来，再搭建hexo部署就可以了。下面给出恢复过程:
-	- 首先，如果换了电脑的话，先要将之前配置的SSH公钥私钥对进行备份，拷到新电脑上相应的c:/user/Administrator/.ssh目录下
+	- 首先，先要将之前配置的SSH公钥私钥对进行备份，拷到新电脑上相应的c:/user/Administrator/.ssh目录下，否则hexo deploy不能访问你的GitHub
 	- 将backup分支clone到本地
 	- 安装hexo环境
 		- node.js
