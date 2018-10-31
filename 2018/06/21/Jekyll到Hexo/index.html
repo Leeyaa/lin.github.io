@@ -571,17 +571,17 @@ npm install
 </li>
 </ol>
 <h2 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h2><ol>
-<li><p>4000端口问题</p>
+<li><p><strong>4000端口问题</strong></p>
 <p>  在建立本地博客过程中，若访问本地博客失败，可能是由于本地4000端口被占用，可通过以下命令来查询端口占用程序并杀死 </p>
 <blockquote>
 <pre><code>&gt; netstat -nao|findstr &quot;4000&quot; #查询占用4000端口的程序，返回例如，&apos;TCP 127.0.0.1:4000 0.0.0.0:0 LISTENING 9220&apos;，其中9220为占用程序的PID
 &gt; tasklist |findstr&quot;9220&quot; #查询PID为9220的程序名称，后可通过任务管理器或命令行杀死占用端口的程序，杀死后，即可打开本地博客。
 </code></pre></blockquote>
 </li>
-<li><p>使用haroopad的bug </p>
+<li><p><strong>使用haroopad的bug</strong> </p>
 <p>  使用haroopad修改md文章，若点击ctrl+s对文章进行保存，下一次打开文档，haroopad会自动在所有的末尾处添加换行符，是多添加一次！会严重干扰md格式。目前还未找到问题所在。</p>
 </li>
-<li><p>新机器配置完SSH，hexo d部署时出现Error: Host key verification failed错误</p>
+<li><p><strong>新机器配置完SSH，hexo d部署时出现Error: Host key verification failed错误</strong></p>
 <p>  在新机器上生成ssh密钥之后，少了一个known_hosts文件，使用命令</p>
 <blockquote>
 <pre><code>ssh git@github.com
