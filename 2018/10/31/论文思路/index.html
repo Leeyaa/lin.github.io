@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="10.09 Recommendation System">
+<meta name="description" content="经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。">
 <meta name="keywords" content="hello JLU~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recommendation system">
-<meta property="og:url" content="http://yoursite.com/2018/10/31/Recommendation system/index.html">
+<meta property="og:title" content="论文思路">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/论文思路/index.html">
 <meta property="og:site_name" content="LIN">
-<meta property="og:description" content="10.09 Recommendation System">
+<meta property="og:description" content="经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-10-31T01:48:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Recommendation system">
-<meta name="twitter:description" content="10.09 Recommendation System">
+<meta name="twitter:title" content="论文思路">
+<meta name="twitter:description" content="经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/31/Recommendation system/">
+  <link rel="canonical" href="http://yoursite.com/2018/10/31/论文思路/">
 
 
 
 
 
-  <title>Recommendation system | LIN</title>
+  <title>论文思路 | LIN</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/Recommendation system/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/论文思路/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Recommendation system</h1>
+          <h1 class="post-title" itemprop="name headline">论文思路</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Recommender-system/" itemprop="url" rel="index">
-                    <span itemprop="name">Recommender system</span>
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
                   </a>
                 </span>
 
@@ -342,145 +342,37 @@
       
 
       
-        <h1 id="10-09-Recommendation-System"><a href="#10-09-Recommendation-System" class="headerlink" title="10.09 Recommendation System"></a>10.09 Recommendation System</h1><a id="more"></a>
+        <p>经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。</p>
+<a id="more"></a>
+<h1 id="一篇论文应该读懂什么"><a href="#一篇论文应该读懂什么" class="headerlink" title="一篇论文应该读懂什么?"></a>一篇论文应该读懂什么?</h1><p><em>inspired by post Doc. feng</em></p>
 <ol>
-<li><p><a href="https://www.ibm.com/developerworks/cn/web/1103_zhaoct_recommstudy1/index.html" target="_blank" rel="noopener">推荐系统的理解</a></p>
-<ol>
-<li>根据用户分<ul>
-<li>大众行为推荐引擎</li>
-<li>个性化推荐引擎</li>
-</ul>
-</li>
-<li>根据数据源分类<ul>
-<li>demographic-based recommendation </li>
-<li>content-based recommendation </li>
-<li>collaborative filtering-based recommendation </li>
-</ul>
-</li>
-<li><p>根据推荐模型</p>
-<ul>
-<li>基于物品和用户本身</li>
-<li>rule-based recommendation</li>
-<li>model-based recommendation</li>
-</ul>
-<p>一般来讲，在一个大型推荐站点，需要进行混合的使用。</p>
-</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li>factorization machines (FM)<ul>
-<li>TransFM</li>
-<li>NeuralFM</li>
-<li>ConvolFM</li>
-</ul>
-</li>
-<li><p>what’s sequential recommendation?</p>
-</li>
-<li><p>目前来看，神经网络与推荐系统的结合做的还够，已有的文章都是传统的机器学习方法，所以这几年向南一直在做这方面的论文。</p>
-</li>
-<li><p>先把rendle大神最基础的factorization machine详细的了解清楚，再看看神经网络的方法怎么做。</p>
-</li>
-<li><p>要了解什么是factorization machine，是哪种RS里面用到的技术？还是所有的RS都会用的底层技术？具体实现方法怎么推倒？代码怎么实现？</p>
-<ul>
-<li>FM是结合了SVM与factorization model优势的新模型</li>
-<li>FM可以处理稀疏特征矩阵，而SVM不可以</li>
-<li>FM的模型方程可以在线性时间内被计算出来，SVM是非线性的</li>
-<li>FM模型只需要将输入数据特殊化，就可以模拟一些不同的因子分解模型</li>
-</ul>
-</li>
-<li><p><strong>什么是SVM？</strong></p>
-</li>
-<li><strong>在FM中，什么是factorization？</strong></li>
-<li><strong>SVM是怎样被扩展或添加为FM的？</strong></li>
-</ol>
-<h1 id="10-10-FM学习"><a href="#10-10-FM学习" class="headerlink" title="10.10 FM学习"></a>10.10 FM学习</h1><ol>
-<li><p>FM模型方程中K应该是一个超参，但是并不清楚这个点积是由哪两个向量定义的,Vi与xi代表的是不是一个向量</p>
-</li>
-<li><p>模型方程是由线性模型派生出来的，添加了独立向量之间的交互。</p>
-</li>
-<li><p>正定矩阵性质</p>
-<ul>
-<li>W=VVT ，v为n<em>k矩阵，当k足够大时，对于任意的正定对称的实矩阵w（n</em>n），均存在实矩阵V使得成立W=VVT</li>
-<li>在文章中，因为只vi与vj只考虑i大于j的情况，所以W矩阵的对称性可以保证，但如何保证W的正定性？ A：因为我们只关注i与j互异的情况，所以当i=j时，W的对角线是可以随便取值的，在保证对角线元素严格对角占优（足够大）的情况下，就可以保证W的正定性。</li>
-</ul>
-</li>
-</ol>
-<ol start="4">
-<li><p>一篇论文读懂什么? inspired by post Doc. feng </p>
-<ul>
 <li>模型以及推倒：最难啃的，要读懂文章提出的model and computing equation</li>
-<li>创新点：去理解论文的<strong>发展脉络</strong>，文章从哪个模型改进来的，改进的那些？为什么要这么设计model？好处是什么？解决了什么问题？</li>
-<li>实验结果：以自己的角度去理解文章提出的模型到底好不好？<strong>那些地方好</strong>？是否架构简单？是否结果很优秀？</li>
+<li>创新点：去理解论文的<strong>发展脉络</strong><ul>
+<li>文章从哪个模型改进来的，改进的那些？</li>
+<li>为什么要这么设计model？好处是什么？</li>
+<li>model解决了什么问题？</li>
+</ul>
+</li>
+<li>实验结果：以自己的角度去理解文章提出的模型到底好不好？<ul>
+<li><strong>那些地方好</strong>？是否实验结果很优秀？</li>
+<li>是否架构简单？</li>
+</ul>
+</li>
 <li>改进：文章改进点在哪里？</li>
-</ul>
-</li>
-<li><p>什么是Vi和Vj，到底什么是factorization？</p>
-<p> Vi与Vj都是因子向量，代表着权重，是需要训练的参数，如VA是Alice的权重，VST是电影ST的权重，WA,ST=&lt;VA,VST&gt;则代表着factorization的过程，代表着这两个因子交互的过程。希望这么理解没错。</p>
-</li>
 </ol>
-<h1 id="10-11-FM结尾"><a href="#10-11-FM结尾" class="headerlink" title="10.11 FM结尾"></a>10.11 FM结尾</h1><ol>
-<li><p>学习SVM</p>
-<p> 大体思想在reddit上被讲解的很清楚，<a href="http://bytesizebio.net/2014/02/05/support-vector-machines-explained-well/" target="_blank" rel="noopener">这是链接</a>  但是具体是怎么实现的，要再看论文。</p>
-<p> 一篇讲解SVM的论文也可以看，一个生物学家写的（汗颜）。</p>
-</li>
-<li><p>看完FM，对FM做总结</p>
-<p> <strong>文章脉络</strong></p>
-<ol>
-<li>FM是一个SVM和因式分解模型的结合体，即拥有SVM的普遍适应性，又可以使用因子分解模型解决SVM模型无法解决的高稀疏矩阵问题。</li>
-<li>FM模型公式是可以在线性时间内被计算出来的，所以FM模型可以直接做optimizing（SVM中的一个过程）。</li>
-<li>论文阐述了FM模型与SVM之间的联系，并且证明了FM在高稀疏情境下在参数预估上的优势。</li>
-<li>给出了怎样通过input data vector X的specifying 使FM model可以模仿其他factorization model，并且性能相近。</li>
-</ol>
-</li>
-</ol>
-<ol start="3">
-<li>most basic collaborative filtering</li>
-</ol>
-<h1 id="10-12"><a href="#10-12" class="headerlink" title="10.12"></a>10.12</h1><ol>
-<li><p>FM总结 接10.11.2</p>
-<ol>
-<li>Introduction 介绍FM优点</li>
-<li><p>prediction under sparsity</p>
-<p> 介绍数据集，文章数据举例，以及为何数据集稀疏</p>
-</li>
-<li><p>factorization machines</p>
+<h1 id="How-to-write-a-great-research-paper"><a href="#How-to-write-a-great-research-paper" class="headerlink" title="How to write a great research paper"></a><a href="https://www.youtube.com/watch?v=VK51E3gHENc" target="_blank" rel="noopener">How to write a great research paper</a></h1><blockquote>
+<p><strong>stucture of an paper</strong> </p>
 <ul>
-<li>A. 介绍了FM<ul>
-<li>1). 方程模型</li>
-<li>2). FM模型的可表达性</li>
-<li>3). take an example to explain how FM estimate interactions in sparse setting by factorizing them </li>
-<li>4). 模型方程演变后，可得到线性计算复杂度的方程，便于optimizing</li>
+<li>abstract (4 sentences )</li>
+<li>introduction (1 page )</li>
+<li>the problem(1 page )</li>
+<li>my idea (2 pages )</li>
+<li>the details (5 pages)</li>
+<li>related work (1-2 pages)</li>
+<li>conclusions and further work (pages)</li>
 </ul>
-</li>
-<li>B. FM作为预测器可以用作那些预测任务<ul>
-<li>回归</li>
-<li>二分类</li>
-<li>排序  </li>
-</ul>
-</li>
-<li>C. FM模型学习参数（SGD）</li>
-<li>D. 扩展为d-way interaction </li>
-</ul>
-</li>
-<li>FM 与SVM的比较，以及为什么SVM模型无法处理高稀疏矩阵</li>
-<li>FM如何通过input vector X的特征变形与转换来模拟其他factorization model</li>
-</ol>
-</li>
-<li><p>TransFM </p>
-</li>
-</ol>
-<ol start="3">
-<li>为什么要这么设计model？好处是什么？解决了什么问题？</li>
-<li>VSCode 主要用法：<ol>
-<li>插件</li>
-<li>vscode 以目录为工作环境，设置也包括user setting &amp;&amp; workspace settings</li>
-<li>command palette  搜索设置功能</li>
-</ol>
-</li>
-<li>tensorflow的Python环境在底边栏选择。底边栏有许多设置</li>
-</ol>
-<h1 id="10-13"><a href="#10-13" class="headerlink" title="10.13"></a>10.13</h1><h2 id="how-to-write-a-great-research-paper"><a href="#how-to-write-a-great-research-paper" class="headerlink" title="how to write a great research paper"></a>how to write a great research paper</h2><ol>
+</blockquote>
+<ol>
 <li><strong>Don’t wait ,write</strong>.your idea -&gt;write a paper -&gt;do research <ul>
 <li>don’t wait if you have a good idea ,write it</li>
 <li>writing is a tool to communicate with yourself </li>
@@ -497,8 +389,6 @@
 </li>
 </ul>
 </li>
-</ol>
-<h1 id="10-14"><a href="#10-14" class="headerlink" title="10.14"></a>10.14</h1><ol>
 <li><strong>tell a story</strong> <ul>
 <li>here is a problem </li>
 <li>it’s an interesting problem </li>
@@ -525,20 +415,6 @@
 </li>
 </ol>
 </li>
-</ol>
-<h1 id="10-15"><a href="#10-15" class="headerlink" title="10.15"></a>10.15</h1><blockquote>
-<p><strong>stucture of an paper</strong> </p>
-<ul>
-<li>abstract (4 sentences )</li>
-<li>introduction (1 page )</li>
-<li>the problem(1 page )</li>
-<li>my idea (2 pages )</li>
-<li>the details (5 pages)</li>
-<li>related work (1-2 pages)</li>
-<li>conclusions and further work (pages)</li>
-</ul>
-</blockquote>
-<ol start="5">
 <li><strong>related work</strong>:<ul>
 <li><strong>Later</strong> , it should’t be at the beginning of the paper ,because the reader can still not understand what the problems and your idea is. after you have explicitly explained your work ,you can start to intruduce it.</li>
 <li>give <strong>credit</strong> to other works, share your love ,you get more love. so ,be warm to acknowledge people who have helped you .</li>
@@ -715,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#10-09-Recommendation-System"><span class="nav-number">1.</span> <span class="nav-text">10.09 Recommendation System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-10-FM学习"><span class="nav-number">2.</span> <span class="nav-text">10.10 FM学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-11-FM结尾"><span class="nav-number">3.</span> <span class="nav-text">10.11 FM结尾</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-12"><span class="nav-number">4.</span> <span class="nav-text">10.12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-13"><span class="nav-number">5.</span> <span class="nav-text">10.13</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-write-a-great-research-paper"><span class="nav-number">5.1.</span> <span class="nav-text">how to write a great research paper</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-14"><span class="nav-number">6.</span> <span class="nav-text">10.14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-15"><span class="nav-number">7.</span> <span class="nav-text">10.15</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一篇论文应该读懂什么"><span class="nav-number">1.</span> <span class="nav-text">一篇论文应该读懂什么?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-write-a-great-research-paper"><span class="nav-number">2.</span> <span class="nav-text">How to write a great research paper</span></a></li></ol></div>
             
 
           </div>
