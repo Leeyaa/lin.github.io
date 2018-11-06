@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LIN">
 <meta property="og:description" content="刚刚开始学习python，多多指教">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T06:08:24.972Z">
+<meta property="og:updated_time" content="2018-11-06T06:10:33.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 初长成">
 <meta name="twitter:description" content="刚刚开始学习python，多多指教">
@@ -509,10 +509,7 @@ False
 <p><strong>listObj = [expression for item in iterable if condition]</strong></p>
 </blockquote>
 <blockquote>
-<p>print([number*2 - 3 for number in range(2,5)])</p>
-</blockquote>
-<blockquote>
-<p>print([number for number in range(1,6) if number &gt;% 2 == 1])</p>
+<p>print([number*2 - 3 for number in range(2,5)])<br>print([number for number in range(1,6) if number &gt;% 2 == 1])</p>
 </blockquote>
 </li>
 <li><p>dictionary推导式</p>
@@ -520,13 +517,7 @@ False
 <p><strong>dictionaryObj = { key_expression : value_expression for expression in iterable if condition}</strong> </p>
 </blockquote>
 <blockquote>
-<p>  word = ‘letters’</p>
-</blockquote>
-<blockquote>
-<p>  letter_counts = {letter: word.count(letter) for letter in set(word)  if letter.lower() not in ‘aeiou’}</p>
-</blockquote>
-<blockquote>
-<p>  print(letter_counts)</p>
+<p>  word = ‘letters’<br>  letter_counts = {letter: word.count(letter) for letter in set(word)  if letter.lower() not in ‘aeiou’}<br>  print(letter_counts)</p>
 </blockquote>
 </li>
 <li><p>set推导式</p>
@@ -548,16 +539,16 @@ False
 <blockquote>
 <p>  #或者转为list使用<br>  number_list = list(number_thing)<br>  print(number_list)<br>  print(‘因为只能使用一次，所以上面这边找不到东西了’)</p>
 </blockquote>
+<blockquote>
+<p>  number_thing = (number*3-2 for number in range(1, &gt;6))<br>  number_list = list(number_thing)<br>  print(number_list)</p>
+</blockquote>
 </li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<pre><code>&gt;   number_thing = (number*3-2 for number in range(1, &gt;6))
-&gt;   number_list = list(number_thing)
-&gt;   print(number_list)
-</code></pre><ol start="3">
+<ol start="3">
 <li>双参数迭代<blockquote>
 <pre><code>&gt;&gt;&gt; for x, y in [(1, 1), (2, 4), (3, 9)]:
 ...     print(x, y)
