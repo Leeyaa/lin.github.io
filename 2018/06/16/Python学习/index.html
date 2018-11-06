@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LIN">
 <meta property="og:description" content="刚刚开始学习python，多多指教">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T05:57:14.158Z">
+<meta property="og:updated_time" content="2018-11-06T06:08:24.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 初长成">
 <meta name="twitter:description" content="刚刚开始学习python，多多指教">
@@ -486,27 +486,67 @@ False
 <p> 可以简单漂亮的写出python风格的语法。这些方法很好用，代码会更加简洁漂亮。</p>
 <ul>
 <li><p>第一种方法，使用for循环进行数组填充 </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">number_list = []</span><br><span class="line">for number in range(1, 6):</span><br><span class="line">    number_list.append(number)</span><br><span class="line">print(number_list)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>number_list = []<br>for number in range(1, 6):</p>
+<pre><code>number_list.append(number)
+</code></pre><p>print(number_list) </p>
+</blockquote>
 </li>
 <li><p>第二种方法，使用list进行填充    </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    print(list(range(1, 6)))</span><br><span class="line">    ``` </span><br><span class="line">- 第三种方法，使用推导式</span><br></pre></td></tr></table></figure>
-<p>  print([number for number in range(1,6)])</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. list推导式</span><br><span class="line">   </span><br><span class="line">    &gt; **listObj = [expression for item in iterable if condition]**</span><br><span class="line">    </span><br><span class="line">    &gt;print([number*2 - 3 for number in range(2,5)])</span><br><span class="line">    &gt;print([number for number in range(1,6) if number &gt;% 2 == 1])</span><br><span class="line">    </span><br><span class="line">2. dictionary推导式</span><br><span class="line"></span><br><span class="line">    &gt; **dictionaryObj = &#123; key_expression : value_expression for expression in iterable if condition&#125;**</span><br></pre></td></tr></table></figure>
-<p>  word = ‘letters’<br>  letter_counts = {letter: word.count(letter) for letter in set(word) if letter.lower() not in ‘aeiou’}<br>  print(letter_counts)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3. set推导式</span><br><span class="line"></span><br><span class="line">    &gt; **set_Obj = &#123;expression for expression in iterable if condition&#125;**</span><br></pre></td></tr></table></figure>
-<p>  print({number for number in range(1,6) if number % 3 == 1})<br>  <code>`</code></p>
+<blockquote>
+<p>print(list(range(1, 6)))</p>
+</blockquote>
+</li>
+<li><p>第三种方法，使用推导式</p>
+<blockquote>
+<p>print([number for number in range(1,6)])</p>
+</blockquote>
 </li>
 </ul>
-<ol start="4">
+<ol>
+<li><p>list推导式</p>
+<blockquote>
+<p><strong>listObj = [expression for item in iterable if condition]</strong></p>
+</blockquote>
+<blockquote>
+<p>print([number*2 - 3 for number in range(2,5)])</p>
+</blockquote>
+<blockquote>
+<p>print([number for number in range(1,6) if number &gt;% 2 == 1])</p>
+</blockquote>
+</li>
+<li><p>dictionary推导式</p>
+<blockquote>
+<p><strong>dictionaryObj = { key_expression : value_expression for expression in iterable if condition}</strong> </p>
+</blockquote>
+<blockquote>
+<p>  word = ‘letters’</p>
+</blockquote>
+<blockquote>
+<p>  letter_counts = {letter: word.count(letter) for letter in set(word)  if letter.lower() not in ‘aeiou’}</p>
+</blockquote>
+<blockquote>
+<p>  print(letter_counts)</p>
+</blockquote>
+</li>
+<li><p>set推导式</p>
+<blockquote>
+<p><strong>set_Obj = {expression for expression in iterable if condition}</strong> </p>
+</blockquote>
+<blockquote>
+<p>print({number for number in range(1,6) if number % 3 == 1})</p>
+</blockquote>
+</li>
 <li><p>generator 推导式</p>
 <blockquote>
-<p>tuples没有推导式的用法，使用()包起來是generator推导式的用法,简单来说就是可以产生像是range()的Object，亦表示可以直接对齐迭代</p>
+<p>  tuples没有推导式的用法，使用()包起來是generator推导式的用法,简单来说就是可以产生像是range()的Object，亦表示可以直接对齐迭代</p>
 </blockquote>
 <blockquote>
-<p>number_thing = (number*3-2 for number in range(1, &gt;6))<br>print((1,))<br>print(number_thing)<br>for number in number_thing:<br>   print(number)</p>
-</blockquote>
+<p>  number_thing = (number*3-2 for number in range(1, &gt;6))<br>  print((1,))<br>  print(number_thing)<br>  for number in number_thing:</p>
+<pre><code>print(number)
+</code></pre></blockquote>
 <blockquote>
-<p>#或者转为list使用<br>number_list = list(number_thing)<br>print(number_list)<br>print(‘因为只能使用一次，所以上面这边找不到东西了’)</p>
+<p>  #或者转为list使用<br>  number_list = list(number_thing)<br>  print(number_list)<br>  print(‘因为只能使用一次，所以上面这边找不到东西了’)</p>
 </blockquote>
 </li>
 </ol>
@@ -514,9 +554,9 @@ False
 </ol>
 </li>
 </ol>
-<pre><code>&gt;number_thing = (number*3-2 for number in range(1, &gt;6))
-&gt;number_list = list(number_thing)
-&gt;print(number_list)
+<pre><code>&gt;   number_thing = (number*3-2 for number in range(1, &gt;6))
+&gt;   number_list = list(number_thing)
+&gt;   print(number_list)
 </code></pre><ol start="3">
 <li>双参数迭代<blockquote>
 <pre><code>&gt;&gt;&gt; for x, y in [(1, 1), (2, 4), (3, 9)]:
