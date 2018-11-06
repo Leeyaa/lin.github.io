@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LIN">
 <meta property="og:description" content="刚刚开始学习python，多多指教">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T06:10:33.820Z">
+<meta property="og:updated_time" content="2018-11-06T06:13:51.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 初长成">
 <meta name="twitter:description" content="刚刚开始学习python，多多指教">
@@ -681,17 +681,12 @@ enroll(&apos;Adam&apos;, &apos;M&apos;, city=&apos;Tianjin&apos;)
 </li>
 </ol>
 <h1 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h1><p>建立类似于x个x*x的list</p>
-<blockquote>
-<p>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
-</blockquote>
-<p>从XYZ与ABC两组数组组合全排列的</p>
-<blockquote>
-<pre><code>&gt;&gt;&gt;[m + n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]
-[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]
-</code></pre></blockquote>
-<h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><ul>
-<li>检查是否为字符串</li>
-</ul>
+<pre><code>&gt;   [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre><p>从XYZ与ABC两组数组组合全排列的</p>
+<pre><code>&gt;   &gt;&gt;&gt;[m + n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]
+&gt;   [&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]
+</code></pre><h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><ul>
+<li><p>检查是否为字符串</p>
 <blockquote>
 <pre><code>&gt;&gt;&gt; x = &apos;abc&apos;
 &gt;&gt;&gt; y = 123
@@ -700,14 +695,15 @@ True
 &gt;&gt;&gt; isinstance(y, str)
 False
 </code></pre></blockquote>
-<ul>
-<li>字符串大写变小写s.lower()</li>
-</ul>
+</li>
+<li><p>字符串大写变小写s.lower()</p>
 <blockquote>
 <pre><code>&gt;&gt;&gt; L = [&apos;Hello&apos;, &apos;World&apos;, &apos;IBM&apos;, &apos;Apple&apos;]
 &gt;&gt;&gt; [s.lower() for s in L]
 [&apos;hello&apos;, &apos;world&apos;, &apos;ibm&apos;, &apos;apple&apos;]
 </code></pre></blockquote>
+</li>
+</ul>
 
       
     </div>
