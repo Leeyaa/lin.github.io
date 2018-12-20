@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。">
+<meta name="description" content="scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储方式总会有各种各样的缺点，而直接用sparse的方式进行存储和操作，使得代码编写便捷，并且大大提高了程序运行性能，本文旨在总结学习如何使用Python的scipy.sparse库与TensorFlow进行稀疏矩阵存储，运算等操作。">
 <meta name="keywords" content="hello JLU~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文思路">
-<meta property="og:url" content="http://yoursite.com/2018/10/31/论文思路/index.html">
+<meta property="og:title" content="Sparse matrix operation in scipy &amp; tensorflow">
+<meta property="og:url" content="http://yoursite.com/2018/12/20/sparse_operation/index.html">
 <meta property="og:site_name" content="LIN">
-<meta property="og:description" content="经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。">
+<meta property="og:description" content="scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储方式总会有各种各样的缺点，而直接用sparse的方式进行存储和操作，使得代码编写便捷，并且大大提高了程序运行性能，本文旨在总结学习如何使用Python的scipy.sparse库与TensorFlow进行稀疏矩阵存储，运算等操作。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-31T01:48:00.000Z">
+<meta property="og:updated_time" content="2018-12-20T13:14:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文思路">
-<meta name="twitter:description" content="经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。">
+<meta name="twitter:title" content="Sparse matrix operation in scipy &amp; tensorflow">
+<meta name="twitter:description" content="scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储方式总会有各种各样的缺点，而直接用sparse的方式进行存储和操作，使得代码编写便捷，并且大大提高了程序运行性能，本文旨在总结学习如何使用Python的scipy.sparse库与TensorFlow进行稀疏矩阵存储，运算等操作。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/31/论文思路/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/20/sparse_operation/">
 
 
 
 
 
-  <title>论文思路 | LIN</title>
+  <title>Sparse matrix operation in scipy & tensorflow | LIN</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/论文思路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/20/sparse_operation/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文思路</h1>
+          <h1 class="post-title" itemprop="name headline">Sparse matrix operation in scipy & tensorflow</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T10:00:00+08:00">
-                2018-10-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T21:14:00+08:00">
+                2018-12-20
               </time>
             
 
@@ -305,8 +305,41 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/paper/" itemprop="url" rel="index">
-                    <span itemprop="name">paper</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/sparse-matrix/" itemprop="url" rel="index">
+                    <span itemprop="name">sparse matrix</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/sparse-matrix/scipy-sparse/" itemprop="url" rel="index">
+                    <span itemprop="name">scipy.sparse</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/sparse-matrix/scipy-sparse/tensorflow-sparse-tensor/" itemprop="url" rel="index">
+                    <span itemprop="name">tensorflow sparse tensor</span>
                   </a>
                 </span>
 
@@ -342,96 +375,208 @@
       
 
       
-        <p>经过一段时间的论文阅读，受到一些老师的启发，看过一些大牛的视频，总结一下一篇好的论文的思路应该是什么样，怎么去读，怎么去写。</p>
+        <p>scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储方式总会有各种各样的缺点，而直接用sparse的方式进行存储和操作，使得代码编写便捷，并且大大提高了程序运行性能，本文旨在总结学习如何使用Python的scipy.sparse库与TensorFlow进行稀疏矩阵存储，运算等操作。</p>
 <a id="more"></a>
-<h1 id="一篇论文应该读懂什么"><a href="#一篇论文应该读懂什么" class="headerlink" title="一篇论文应该读懂什么?"></a>一篇论文应该读懂什么?</h1><p><em>inspired by post Doc. feng</em></p>
+<h2 id="scipy-sparse"><a href="#scipy-sparse" class="headerlink" title="scipy.sparse"></a>scipy.sparse</h2><hr>
 <ol>
-<li>模型以及推倒：最难啃的，要读懂文章提出的model and computing equation</li>
-<li>创新点：去理解论文的<strong>发展脉络</strong><ul>
-<li>文章从哪个模型改进来的，改进的那些？</li>
-<li>为什么要这么设计model？好处是什么？</li>
-<li>model解决了什么问题？</li>
+<li>coo_matrix <ol>
+<li>是一种坐标形式的稀疏矩阵，也是常说的ijv或triple格式</li>
+<li>初始化的几种方法:<ul>
+<li>coo_matrix(D) <ul>
+<li>D为稠密矩阵</li>
 </ul>
 </li>
-<li>实验结果：以自己的角度去理解文章提出的模型到底好不好？<ul>
-<li><strong>那些地方好</strong>？是否实验结果很优秀？</li>
-<li>是否架构简单？</li>
+<li>coo_matrix(S)<ul>
+<li>S为另一个稀疏矩阵，也可以表示为：S.tocoo()</li>
 </ul>
 </li>
-<li>改进：文章改进点在哪里？</li>
-</ol>
-<h1 id="How-to-write-a-great-research-paper"><a href="#How-to-write-a-great-research-paper" class="headerlink" title="How to write a great research paper"></a><a href="https://www.youtube.com/watch?v=VK51E3gHENc" target="_blank" rel="noopener">How to write a great research paper</a></h1><blockquote>
-<p><strong>stucture of an paper</strong> </p>
-<ul>
-<li>abstract (4 sentences )</li>
-<li>introduction (1 page )</li>
-<li>the problem(1 page )</li>
-<li>my idea (2 pages )</li>
-<li>the details (5 pages)</li>
-<li>related work (1-2 pages)</li>
-<li>conclusions and further work (pages)</li>
+<li>coo_matrix((M,N),[dtype]) <ul>
+<li>construct an empty matrix with shape(M,N).dtype is an optional parameter with default dtype=d</li>
 </ul>
-</blockquote>
+</li>
+<li>coo_matrix((data,(i,j)) , [shape=(M,N)])<ul>
+<li>construct coo_matrix with 3 arrays</li>
+<li>data[:]是值</li>
+<li>i[:]是行的索引（坐标）</li>
+<li>j[:]是列的索引（坐标）</li>
+</ul>
+</li>
+</ul>
 <ol>
-<li><strong>Don’t wait ,write</strong>.your idea -&gt;write a paper -&gt;do research <ul>
-<li>don’t wait if you have a good idea ,write it</li>
-<li>writing is a tool to communicate with yourself </li>
+<li>稀疏矩阵的优点<ul>
+<li>sparse matrix supports arithmetic operations including addition, subtraction, multiplication, division, and matrix power(矩阵幂运算)</li>
 </ul>
 </li>
-<li><strong>identify your key idea</strong> ,identify<ul>
-<li>we all feel that our idea is weedy and insignificant ,just write a paper about your weedy and insignificant idea anyway .Don’t wait till you have a good idea to write something ,write any idea and don’t be intimidated </li>
-<li>you may not be very clear at the beginning ,but you must be clear of what your idea is when you finished your paper .</li>
-<li><strong>just one ‘ping’</strong>-one paper should just have one idea ,if you have lots of ideas ,just write lots of papers </li>
-<li><strong>Key thought</strong> many papers contains good ideas,but do not distill what they are ,you must make certain that the reader is in no doubt what the idea is .and just be 100% explicit<ol>
-<li>the main idea of this paper is ……</li>
-<li>in this section we present the main contributions of the paper </li>
+<li>coo格式的优缺点<ol>
+<li>优点<ol>
+<li>faciliates fast conversion among sparse formats(促进各种格式稀疏矩阵之间的快速转换)</li>
+<li>permit duplicate entries(see examples)（coo_matrix 支持相同的坐标输入多次,支持相同的坐标下存放多个值）</li>
+<li>very fast conversion to and from CSR/CSC formats(可以快速转换到CSR/CSC格式，或从CSR/CSC格式转换回来)</li>
 </ol>
 </li>
-</ul>
-</li>
-<li><strong>tell a story</strong> <ul>
-<li>here is a problem </li>
-<li>it’s an interesting problem </li>
-<li>it’s unsolved </li>
-<li>Here is my idea </li>
-<li>my idea works (how ? experiment ? data? details? )</li>
-<li>here is my works compares to other people’s approaches</li>
-</ul>
-</li>
-<li><strong>nail your contributions</strong> to the mast <ol>
-<li>how to write introduction <ul>
-<li>describe the problem (the speaker always introduce problems with an examle )<ul>
-<li><strong>molehills not mountainside</strong> ,explain your problem explict and interesting but complex and empty</li>
-</ul>
-</li>
-<li>state your contributions <ul>
-<li>write the list of contributions first </li>
-<li>the list of contributions drives the entire paper :the paper substantiates the claims you have made </li>
-<li>this will attract readers to read more </li>
-</ul>
-</li>
-<li>that’s all in one page </li>
-</ul>
+<li>缺点<ol>
+<li>不直接支持算术运算和切片</li>
+<li>不支持元素插入或删除</li>
+</ol>
 </li>
 </ol>
 </li>
-<li><strong>related work</strong>:<ul>
-<li><strong>Later</strong> , it should’t be at the beginning of the paper ,because the reader can still not understand what the problems and your idea is. after you have explicitly explained your work ,you can start to intruduce it.</li>
-<li>give <strong>credit</strong> to other works, share your love ,you get more love. so ,be warm to acknowledge people who have helped you .</li>
-<li>acknowledge weakness in your approach </li>
+<li>coo_matrix 格式使用目的<ol>
+<li>coo is a fast format for constructing sparse matrices</li>
+<li>coo_matrix 被建好后，可以转换到CSR/CSC格式来进行快速运算和矩阵向量操作</li>
+<li>当coo_matrix转换为CSR/CSC格式之后，duplicat(i,j)将会被summed together.有助于有效构造有限的矩阵</li>
+</ol>
+</li>
+<li>coo_matrix 属性<ol>
+<li>dtype<ul>
+<li>data的数据格式</li>
 </ul>
 </li>
-<li><p><strong>put your readers first</strong></p>
-<ul>
-<li>use <strong>examples</strong> rather than theorems to make the explanation more live </li>
+<li>shape(2-tuple)<ul>
+<li>get the shape of matrix </li>
 </ul>
 </li>
-<li><p><strong>listen to your readers</strong> </p>
-<ul>
-<li>listen to your reviewer , be grateful for criticism as well as praise .it’s hard but important </li>
-<li>listen to an expert ,let the expert examine your work and your statement </li>
-<li>Guinea pigs is helpful , make the problem X is apparent even for the stupidest reader</li>
+<li>nnz<ul>
+<li>number of stored values , including explicit zeros</li>
 </ul>
+</li>
+<li>data<ul>
+<li>COO format data array  </li>
+</ul>
+</li>
+<li>row<ul>
+<li>COO format row index array (x坐标数组)</li>
+</ul>
+</li>
+<li>col  <ul>
+<li>COO format column index array （y坐标数组）</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>identity matrix in sparse format（稀疏单位矩阵）<ol>
+<li>scipy.sparse.identity(n , dtype =’d’ , format = None)</li>
+<li>返回一个n*n的单位矩阵</li>
+<li>parameters<ol>
+<li>n<ul>
+<li>返回n*n矩阵，n为shape</li>
+</ul>
+</li>
+<li>dtype<ul>
+<li>数据格式</li>
+</ul>
+</li>
+<li>format<ul>
+<li>CSR,DIA(斜对角)等格式</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.csr_matrix.html" target="_blank" rel="noopener">csr_matrix</a><ol>
+<li>压缩行矩阵（compressed sparse row matrix）</li>
+<li>scipy.sparse.csr_matrix(arg1 , shape = None , dtype = None , copy = False)</li>
+<li>实例化方式<ol>
+<li>csr_matrix(D)</li>
+<li>csr_matrix(S)</li>
+<li>csr_matrix((M,N) , [dtype])<ul>
+<li>M*N的空矩阵 </li>
+</ul>
+</li>
+<li>csr_matrix((data, ij) , [shape=(M,N)])<ul>
+<li>与coo_matrix相似</li>
+</ul>
+</li>
+<li>csr_matrix((data, indices, indptr), [shape = (M,N)])<ul>
+<li>data表示所有的非零元素的集合</li>
+<li>indices表示所有非零元素在每行中的列下表</li>
+<li>indptr[0,1,3,6]0后有几个数字表示有几行，数字代表行末的data </li>
+</ul>
+</li>
+<li>优缺点<ol>
+<li>优点<ol>
+<li>高效的运算+，*等</li>
+<li>行切片</li>
+<li>快速的矩阵向量乘法</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>列切片慢</li>
+<li>稀疏结构的改变代价高(使用LIL或DOK)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>属性<ol>
+<li>nnz<ul>
+<li>get the count of explicitly-sorted values </li>
+</ul>
+</li>
+<li>has_sorted_indices<ul>
+<li>determine whether the matrix has sorted indices </li>
+</ul>
+</li>
+<li>dtype<ul>
+<li>data type </li>
+</ul>
+</li>
+<li>shape<ul>
+<li>M*N </li>
+</ul>
+</li>
+<li>ndim<ul>
+<li>always 2(means M*N two dimention) </li>
+</ul>
+</li>
+<li>data<ul>
+<li>CSR format data array</li>
+</ul>
+</li>
+<li>indices<ul>
+<li>CSR format index array </li>
+</ul>
+</li>
+<li>indptr<ul>
+<li>CSR format index point array  </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>stack<ol>
+<li>scipy.sparse.hstack<ol>
+<li>stack sparse matrices horizontally (column wise)</li>
+<li>parameters<ol>
+<li>blocks<ol>
+<li>sequence of sparse matrices with compatible shapes</li>
+</ol>
+</li>
+<li>format = None</li>
+<li>dtype = None</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>scipy,sparse.vstack<ol>
+<li>stack sparse matrices vertically (row wise)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="tensorflow-sparse-operation"><a href="#tensorflow-sparse-operation" class="headerlink" title="tensorflow sparse operation"></a>tensorflow sparse operation</h2><hr>
+<ol>
+<li><p>tf.sparse.SparseTensor</p>
+</li>
+<li><p>tf.sparse.matmul</p>
 </li>
 </ol>
 
@@ -458,8 +603,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/21/Jekyll到Hexo/" rel="next" title="Jekyll到Hexo && 一些坑">
-                <i class="fa fa-chevron-left"></i> Jekyll到Hexo && 一些坑
+              <a href="/2018/11/06/NFM阅读笔记/" rel="next" title="NFM阅读笔记">
+                <i class="fa fa-chevron-left"></i> NFM阅读笔记
               </a>
             
           </div>
@@ -467,10 +612,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/06/NFM阅读笔记/" rel="prev" title="NFM阅读笔记">
-                NFM阅读笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -595,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一篇论文应该读懂什么"><span class="nav-number">1.</span> <span class="nav-text">一篇论文应该读懂什么?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-write-a-great-research-paper"><span class="nav-number">2.</span> <span class="nav-text">How to write a great research paper</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scipy-sparse"><span class="nav-number">1.</span> <span class="nav-text">scipy.sparse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow-sparse-operation"><span class="nav-number">2.</span> <span class="nav-text">tensorflow sparse operation</span></a></li></ol></div>
             
 
           </div>

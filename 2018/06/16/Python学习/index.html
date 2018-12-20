@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LIN">
 <meta property="og:description" content="刚刚开始学习python，多多指教">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T06:35:27.516Z">
+<meta property="og:updated_time" content="2018-12-20T13:23:24.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 初长成">
 <meta name="twitter:description" content="刚刚开始学习python，多多指教">
@@ -344,7 +344,9 @@
       
         <p>刚刚开始学习python，多多指教</p>
 <a id="more"></a>
-<h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1><ol>
+<h1 id="Python-data-structure"><a href="#Python-data-structure" class="headerlink" title="Python data structure"></a>Python data structure</h1><ol>
+<li>list</li>
+<li>dictionary<h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1></li>
 <li><p>输入输出</p>
 <ul>
 <li><p>print()会依次打印每个字符串，遇到逗号“,”会输出一个空格</p>
@@ -681,24 +683,38 @@ enroll(&apos;Adam&apos;, &apos;M&apos;, city=&apos;Tianjin&apos;)
 </li>
 </ol>
 <h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><ol>
-<li><p>列表生成式</p>
-<ul>
-<li><p>建立类似于x个x*x的list</p>
-<blockquote>
+<li>列表生成式<ul>
+<li>建立类似于x个x*x的list<blockquote>
 <pre><code>&gt;&gt;&gt;[x * x for x in range(1, 11)]
 [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </code></pre></blockquote>
 </li>
-<li><p>从XYZ与ABC两组数组组合全排列的</p>
-<blockquote>
+<li>从XYZ与ABC两组数组组合全排列的<blockquote>
 <pre><code>&gt;&gt;&gt;[m + n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]
 [&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]
 </code></pre></blockquote>
 </li>
 </ul>
 </li>
+<li>切片<ol>
+<li>切片取值<ul>
+<li>L[m:n]:从列表的第m个元素开始取，一直取到第n个为止(不包括n)</li>
+</ul>
+</li>
+<li>切片赋值<ul>
+<li>L[1:1] = L2：将L2列表插入到L第一个元素后面 <blockquote>
+<pre><code>&gt;&gt;&gt;l1,l2 = [1,2,3] ,[4,5,6]
+&gt;&gt;&gt;l1[1:1] = l2
+&gt;&gt;&gt;print(l1)
+[1,2,4,5,6,3]
+</code></pre></blockquote>
+<h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1></li>
+</ul>
+</li>
 </ol>
-<h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><ul>
+</li>
+</ol>
+<ul>
 <li><p>检查是否为字符串</p>
 <blockquote>
 <pre><code>&gt;&gt;&gt; x = &apos;abc&apos;
@@ -828,7 +844,7 @@ False
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -839,7 +855,7 @@ False
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -874,7 +890,7 @@ False
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码规范"><span class="nav-number">1.</span> <span class="nav-text">代码规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码结构"><span class="nav-number">2.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-常用库"><span class="nav-number">3.</span> <span class="nav-text">python 常用库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">4.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级特性"><span class="nav-number">5.</span> <span class="nav-text">高级特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串操作"><span class="nav-number">6.</span> <span class="nav-text">字符串操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-data-structure"><span class="nav-number">1.</span> <span class="nav-text">Python data structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码规范"><span class="nav-number">2.</span> <span class="nav-text">代码规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码结构"><span class="nav-number">3.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-常用库"><span class="nav-number">4.</span> <span class="nav-text">python 常用库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级特性"><span class="nav-number">6.</span> <span class="nav-text">高级特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串操作"><span class="nav-number">7.</span> <span class="nav-text">字符串操作</span></a></li></ol></div>
             
 
           </div>
