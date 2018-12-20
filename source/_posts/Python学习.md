@@ -1,6 +1,7 @@
 ---
 title: python 初长成
-date: 2018-6-16 09:55:22
+date: 2018/6/16 09:55:22
+updated: 2018/12/20 21:26:00
 categories:
 - python
 ---
@@ -8,7 +9,9 @@ categories:
 刚刚开始学习python，多多指教
 
 <!-- more -->
-
+# Python data structure
+1. list
+2. dictionary
 # 代码规范
 1. 输入输出
     - print()会依次打印每个字符串，遇到逗号“,”会输出一个空格
@@ -273,14 +276,21 @@ categories:
  
 # 高级特性
 1. 列表生成式
-
     - 建立类似于x个x*x的list
         >     >>>[x * x for x in range(1, 11)]
         >     [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-    
     - 从XYZ与ABC两组数组组合全排列的
         >     >>>[m + n for m in 'ABC' for n in 'XYZ']
         >     ['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+2. 切片
+    1. 切片取值
+        - L[m:n]:从列表的第m个元素开始取，一直取到第n个为止(不包括n)
+    2. 切片赋值
+        - L[1:1] = L2：将L2列表插入到L第一个元素后面 
+        >       >>>l1,l2 = [1,2,3] ,[4,5,6]
+        >       >>>l1[1:1] = l2
+        >       >>>print(l1)
+        >       [1,2,4,5,6,3]
 
 # 字符串操作
 - 检查是否为字符串
