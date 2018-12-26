@@ -29,9 +29,9 @@ scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储�
         - data[:]是值
         - i[:]是行的索引（坐标）
         - j[:]是列的索引（坐标）
-    1. 稀疏矩阵的优点
+   3. 稀疏矩阵的优点
        - sparse matrix supports arithmetic operations including addition, subtraction, multiplication, division, and matrix power(矩阵幂运算)
-    2. coo格式的优缺点
+   4. coo格式的优缺点
        1. 优点
           1. faciliates fast conversion among sparse formats(促进各种格式稀疏矩阵之间的快速转换)
           2. permit duplicate entries(see examples)（coo_matrix 支持相同的坐标输入多次,支持相同的坐标下存放多个值）
@@ -39,11 +39,11 @@ scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储�
        2. 缺点
           1. 不直接支持算术运算和切片
           2. 不支持元素插入或删除
-    3. coo_matrix 格式使用目的
+   5. coo_matrix 格式使用目的
        1. coo is a fast format for constructing sparse matrices
        2. coo_matrix 被建好后，可以转换到CSR/CSC格式来进行快速运算和矩阵向量操作
        3. 当coo_matrix转换为CSR/CSC格式之后，duplicat(i,j)将会被summed together.有助于有效构造有限的矩阵
-    4. coo_matrix 属性
+   6. coo_matrix 属性
        1. dtype
           - data的数据格式
        2. shape(2-tuple)
