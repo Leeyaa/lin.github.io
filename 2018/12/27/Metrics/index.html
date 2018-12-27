@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="推荐系统有很多常见的评价指标，本文对常见的一些指标做一个总结">
+<meta name="keywords" content="hello JLU~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Some usual Metrics in Recommender System">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/Metrics/index.html">
+<meta property="og:site_name" content="LIN">
+<meta property="og:description" content="推荐系统有很多常见的评价指标，本文对常见的一些指标做一个总结">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-27T13:10:19.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Some usual Metrics in Recommender System">
+<meta name="twitter:description" content="推荐系统有很多常见的评价指标，本文对常见的一些指标做一个总结">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/27/Metrics/">
+
+
+
+
+
+  <title>Some usual Metrics in Recommender System | LIN</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LIN</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/Metrics/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIN">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Some usual Metrics in Recommender System</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T20:57:30+08:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Recommender-System/" itemprop="url" rel="index">
+                    <span itemprop="name">Recommender System</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>推荐系统有很多常见的评价指标，本文对常见的一些指标做一个总结</p>
+<a id="more"></a>
+<h2 id="topN与评分预测、CTR-prediction区别"><a href="#topN与评分预测、CTR-prediction区别" class="headerlink" title="topN与评分预测、CTR prediction区别"></a>topN与评分预测、CTR prediction区别</h2><h3 id="topN"><a href="#topN" class="headerlink" title="topN"></a>topN</h3><ol>
+<li>pair-wise或list-wise，用户相对于i更喜欢j。<strong>Top-N推荐我们采pair-wise的式来对用户进行偏好的偏序建模，即考虑每个用户对于物品的喜好序关系。</strong></li>
+<li>最终的结果是topN的排序，而不是评分</li>
+<li>隐式反馈的情况比较多</li>
+<li>一般用MAP，NDCG等评价指标</li>
+<li>更符合实际情况一些<h3 id="评分预测"><a href="#评分预测" class="headerlink" title="评分预测"></a>评分预测</h3></li>
+<li>point-wise</li>
+<li>预测出的评分如果全是5分，并没有办法推荐出最好的N个来</li>
+<li>显示反馈的情况比较多<h3 id="CTR"><a href="#CTR" class="headerlink" title="CTR"></a>CTR</h3></li>
+<li>可以计算出准确概率</li>
+</ol>
+<h2 id="Evaluation-Metrics"><a href="#Evaluation-Metrics" class="headerlink" title="Evaluation Metrics"></a>Evaluation Metrics</h2><h3 id="accuracy-准确率"><a href="#accuracy-准确率" class="headerlink" title="accuracy(准确率)"></a>accuracy(准确率)</h3><ul>
+<li>$number of correct predictions/total num of predictions$ 确结果所占的分比</li>
+<li>对于二元分类，也可以表示为：$(TP+TN)/(TP+TN+FP+FN)$</li>
+<li>虽然准确率是一种非常直观且常见的metric，但是有一些重大的缺陷</li>
+<li><p>如：分类不平衡，即，正类别或负类别极其罕见，<strong>当您使用分类不平的数据集（比正类别标签和负类别标签的数量之间存在明显差异）时，单准确率一项并不能反映全面况。（肿瘤的例子）</strong></p>
+<h3 id="classification-threshold-Metrics"><a href="#classification-threshold-Metrics" class="headerlink" title="classification threshold - Metrics"></a><a href="https://developers.google.cn/machine-learning/crash-course/classification/true-false-positive-negative" target="_blank" rel="noopener">classification threshold - Metrics</a></h3></li>
+<li><p>为了将逻辑回归值映射到二元类别，您必须指定分类阈值（也称为判定阈值）。果值高于该阈值，则表示“垃圾邮件”；如果值低于该阈值，则表示“非垃圾邮件”。</p>
+</li>
+<li><strong>‘TP’第一位表示是否预测对了，第二位表示做的预测是正例还是负例</strong></li>
+</ul>
+<h3 id="精确率-提高threshold"><a href="#精确率-提高threshold" class="headerlink" title="精确率 - 提高threshold"></a>精确率 - 提高threshold</h3><ul>
+<li>$TP/TP+FP$   </li>
+<li>当模型的预测为“正”类别时，预测正确吗？</li>
+<li>直觉：模型是否过于频繁地提醒说“狼来了”？ ， 精确率越高，预测的恶肿瘤中，预正确率越高，预测的垃圾邮件中，垃圾邮件的概率越高。精确越低，预测的恶性肿瘤中，良性误认为恶性的概率就越高，垃圾邮件中，工作邮件预测为垃圾邮件的概率越高。</li>
+<li>改变对阈值的影响：<ul>
+<li>变高：阈值变高</li>
+<li>变低：阈值变低</li>
+<li>精确率并不一定会随着阈值的提高单调递增<h3 id="F1-值：为了折中精确率与召回率的结果，引入了F1值"><a href="#F1-值：为了折中精确率与召回率的结果，引入了F1值" class="headerlink" title="F1 值：为了折中精确率与召回率的结果，引入了F1值"></a>F1 值：为了折中精确率与召回率的结果，引入了F1值</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>$F1 = (2<em>recall</em>precision)/(recall+precision)$ 当recallprecision同时变高的时候，F1值才会变高<h3 id="召回率：降低threshold"><a href="#召回率：降低threshold" class="headerlink" title="召回率：降低threshold"></a>召回率：降低threshold</h3></li>
+</ol>
+<ul>
+<li>$TP/TP+FN$</li>
+<li>在所有正类别中，模型正确地识别出了多少？</li>
+<li>直觉：是否漏掉了任何“狼来了”的情况？，召回率越低，漏掉的垃圾邮件多，漏掉的性肿瘤越多。召回率越高，漏掉的垃圾邮件越少，漏掉的恶性瘤越少。</li>
+<li>改变对阈值的影响<ul>
+<li>变高：阈值变低</li>
+<li>变低：阈值变高<h3 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>精确率和召回率<strong>一般</strong>是此消彼长的状态</li>
+<li>垃圾邮件预测 与 肿瘤预测是两个相反的例子<ul>
+<li>垃圾邮件预测对召回率要求低，因为要求不能将工作邮件误判为垃圾件</li>
+<li>肿瘤预测中对召回率要求高，因为不能漏判恶性肿瘤</li>
+</ul>
+</li>
+<li>阈值降低：TP和FP都会增加，FN,TN都会减小，所以召回率变高，精确<strong>可能</strong>变低 <h3 id="ROC"><a href="#ROC" class="headerlink" title="ROC"></a>ROC</h3></li>
+<li>ROC 曲线用于绘制<strong>采用不同分类阈值</strong>时的 TPR 与 FPR。降低分类值会导致将更多样本归为正类别，从而增加假正例和真正例的个数，增加FP和TPR<h3 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h3></li>
+<li>一种会考虑所有可能分类阈值的评估指标。</li>
+<li>AUC还有另一种解释，就是测试任意给一个正类样本和一个负类样本，正样本的score多大的概率大于负类样本的score。（BPR文章中AUC用到的式）</li>
+<li>计算方法<ul>
+<li>第一种方法：AUC为ROC曲线下的面积，那我们直接计算面积可得。积为一个个的梯形面积之和，计算的精度与阈值的精度有关。</li>
+<li>第二种方法：根据AUC的物理意义，我们计算正样本score大于负样的score的率。取$N<em>M$（N为正样本数，M为负样本数）个二元组，较score，最后得到AUC。间复杂度为$O(N</em>M)$.</li>
+</ul>
+</li>
+</ol>
+<h3 id="hr-hit-ratio-K"><a href="#hr-hit-ratio-K" class="headerlink" title="hr hit ratio@K"></a>hr hit ratio@K</h3><ol>
+<li>in MF-BPR model , if test dataset inlcudes 1 positive sample and 999 negative sample , if the positive ranks in the top-K prediction , we say it hit the user, mean that the $hit ratio@K = 1$ </li>
+</ol>
+<h3 id="ndcg-Normalized-Discounted-Cumulative-Gain"><a href="#ndcg-Normalized-Discounted-Cumulative-Gain" class="headerlink" title="ndcg (Normalized Discounted Cumulative Gain)"></a>ndcg (Normalized Discounted Cumulative Gain)</h3><ol>
+<li>DCG<ol>
+<li>是一个衡量搜索引擎排序算法的指标</li>
+<li>DCG的评测方法的两个前提<ol>
+<li>搜索结果中，相关度越高的结果，排在前面越好</li>
+<li>在PI标注时，等级高的结果比等级低的结果好</li>
+</ol>
+</li>
+<li>搜索引擎一般采用PI(per item)方式进行评测，对每个排序的item进行逐条分。比如：在Google给出5个结果，我们对结果评级为[3,1,2,3,2]</li>
+<li>$DCG_p = rel_1+\Sigma_{i=2}^p (rel_i)/(log_2^i)$</li>
+<li>BPR中，neg test data比pos test data排名小的个数，可以当做$rel_i$</li>
+<li>则计算3的为DCG = 3+(1+1.26+1.5+0.86) = 7.62</li>
+<li>要在CG运算中中加入位置信息的计算。假设每个位置按照从小到大排序，它们价值依次递减，</li>
+</ol>
+</li>
+<li>IDCG<ol>
+<li>IDCG(ideal DCG) 理想的DCG。如：[3,3,2,2,1] IDCG = 3 + (3 + 1.26 +1 + 0.43)</li>
+<li>$rel_i$越大，排的越靠前，则DCG越高，越接近IDCG</li>
+</ol>
+</li>
+<li>NDCG<ol>
+<li>NDCG = DCG / IDCG</li>
+<li>在BPR中，如果hit中，那reli为1，如果hit不中，那么reli为0，再根据换地式则可推出代码中的公式</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/20/sparse_operation/" rel="next" title="Sparse matrix operation in scipy & tensorflow">
+                <i class="fa fa-chevron-left"></i> Sparse matrix operation in scipy & tensorflow
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Lin">
+            
+              <p class="site-author-name" itemprop="name">Lin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#topN与评分预测、CTR-prediction区别"><span class="nav-number">1.</span> <span class="nav-text">topN与评分预测、CTR prediction区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#topN"><span class="nav-number">1.1.</span> <span class="nav-text">topN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评分预测"><span class="nav-number">1.2.</span> <span class="nav-text">评分预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CTR"><span class="nav-number">1.3.</span> <span class="nav-text">CTR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation-Metrics"><span class="nav-number">2.</span> <span class="nav-text">Evaluation Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#accuracy-准确率"><span class="nav-number">2.1.</span> <span class="nav-text">accuracy(准确率)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classification-threshold-Metrics"><span class="nav-number">2.2.</span> <span class="nav-text">classification threshold - Metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精确率-提高threshold"><span class="nav-number">2.3.</span> <span class="nav-text">精确率 - 提高threshold</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F1-值：为了折中精确率与召回率的结果，引入了F1值"><span class="nav-number">2.4.</span> <span class="nav-text">F1 值：为了折中精确率与召回率的结果，引入了F1值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#召回率：降低threshold"><span class="nav-number">2.5.</span> <span class="nav-text">召回率：降低threshold</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精确率和召回率"><span class="nav-number">2.6.</span> <span class="nav-text">精确率和召回率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC"><span class="nav-number">2.7.</span> <span class="nav-text">ROC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUC"><span class="nav-number">2.8.</span> <span class="nav-text">AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hr-hit-ratio-K"><span class="nav-number">2.9.</span> <span class="nav-text">hr hit ratio@K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ndcg-Normalized-Discounted-Cumulative-Gain"><span class="nav-number">2.10.</span> <span class="nav-text">ndcg (Normalized Discounted Cumulative Gain)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
