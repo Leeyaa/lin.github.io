@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LIN">
 <meta property="og:description" content="推荐系统有很多常见的评价指标，本文对常见的一些指标做一个总结">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-27T13:10:19.174Z">
+<meta property="og:updated_time" content="2018-12-27T13:16:35.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Some usual Metrics in Recommender System">
 <meta name="twitter:description" content="推荐系统有很多常见的评价指标，本文对常见的一些指标做一个总结">
@@ -349,20 +349,24 @@
 <li>最终的结果是topN的排序，而不是评分</li>
 <li>隐式反馈的情况比较多</li>
 <li>一般用MAP，NDCG等评价指标</li>
-<li>更符合实际情况一些<h3 id="评分预测"><a href="#评分预测" class="headerlink" title="评分预测"></a>评分预测</h3></li>
+<li>更符合实际情况一些</li>
+</ol>
+<h3 id="评分预测"><a href="#评分预测" class="headerlink" title="评分预测"></a>评分预测</h3><ol>
 <li>point-wise</li>
 <li>预测出的评分如果全是5分，并没有办法推荐出最好的N个来</li>
-<li>显示反馈的情况比较多<h3 id="CTR"><a href="#CTR" class="headerlink" title="CTR"></a>CTR</h3></li>
+<li>显示反馈的情况比较多</li>
+</ol>
+<h3 id="CTR"><a href="#CTR" class="headerlink" title="CTR"></a>CTR</h3><ol>
 <li>可以计算出准确概率</li>
 </ol>
 <h2 id="Evaluation-Metrics"><a href="#Evaluation-Metrics" class="headerlink" title="Evaluation Metrics"></a>Evaluation Metrics</h2><h3 id="accuracy-准确率"><a href="#accuracy-准确率" class="headerlink" title="accuracy(准确率)"></a>accuracy(准确率)</h3><ul>
 <li>$number of correct predictions/total num of predictions$ 确结果所占的分比</li>
 <li>对于二元分类，也可以表示为：$(TP+TN)/(TP+TN+FP+FN)$</li>
 <li>虽然准确率是一种非常直观且常见的metric，但是有一些重大的缺陷</li>
-<li><p>如：分类不平衡，即，正类别或负类别极其罕见，<strong>当您使用分类不平的数据集（比正类别标签和负类别标签的数量之间存在明显差异）时，单准确率一项并不能反映全面况。（肿瘤的例子）</strong></p>
-<h3 id="classification-threshold-Metrics"><a href="#classification-threshold-Metrics" class="headerlink" title="classification threshold - Metrics"></a><a href="https://developers.google.cn/machine-learning/crash-course/classification/true-false-positive-negative" target="_blank" rel="noopener">classification threshold - Metrics</a></h3></li>
-<li><p>为了将逻辑回归值映射到二元类别，您必须指定分类阈值（也称为判定阈值）。果值高于该阈值，则表示“垃圾邮件”；如果值低于该阈值，则表示“非垃圾邮件”。</p>
-</li>
+<li>如：分类不平衡，即，正类别或负类别极其罕见，<strong>当您使用分类不平的数据集（比正类别标签和负类别标签的数量之间存在明显差异）时，单准确率一项并不能反映全面况。（肿瘤的例子）</strong></li>
+</ul>
+<h3 id="classification-threshold-Metrics"><a href="#classification-threshold-Metrics" class="headerlink" title="classification threshold - Metrics"></a><a href="https://developers.google.cn/machine-learning/crash-course/classification/true-false-positive-negative" target="_blank" rel="noopener">classification threshold - Metrics</a></h3><ul>
+<li>为了将逻辑回归值映射到二元类别，您必须指定分类阈值（也称为判定阈值）。果值高于该阈值，则表示“垃圾邮件”；如果值低于该阈值，则表示“非垃圾邮件”。</li>
 <li><strong>‘TP’第一位表示是否预测对了，第二位表示做的预测是正例还是负例</strong></li>
 </ul>
 <h3 id="精确率-提高threshold"><a href="#精确率-提高threshold" class="headerlink" title="精确率 - 提高threshold"></a>精确率 - 提高threshold</h3><ul>
@@ -372,32 +376,36 @@
 <li>改变对阈值的影响：<ul>
 <li>变高：阈值变高</li>
 <li>变低：阈值变低</li>
-<li>精确率并不一定会随着阈值的提高单调递增<h3 id="F1-值：为了折中精确率与召回率的结果，引入了F1值"><a href="#F1-值：为了折中精确率与召回率的结果，引入了F1值" class="headerlink" title="F1 值：为了折中精确率与召回率的结果，引入了F1值"></a>F1 值：为了折中精确率与召回率的结果，引入了F1值</h3></li>
+<li>精确率并不一定会随着阈值的提高单调递增</li>
 </ul>
 </li>
 </ul>
-<ol>
-<li>$F1 = (2<em>recall</em>precision)/(recall+precision)$ 当recallprecision同时变高的时候，F1值才会变高<h3 id="召回率：降低threshold"><a href="#召回率：降低threshold" class="headerlink" title="召回率：降低threshold"></a>召回率：降低threshold</h3></li>
+<h3 id="F1-值：为了折中精确率与召回率的结果，引入了F1值"><a href="#F1-值：为了折中精确率与召回率的结果，引入了F1值" class="headerlink" title="F1 值：为了折中精确率与召回率的结果，引入了F1值"></a>F1 值：为了折中精确率与召回率的结果，引入了F1值</h3><ol>
+<li>$F1 = (2<em>recall</em>precision)/(recall+precision)$ 当recallprecision同时变高的时候，F1值才会变高</li>
 </ol>
-<ul>
+<h3 id="召回率：降低threshold"><a href="#召回率：降低threshold" class="headerlink" title="召回率：降低threshold"></a>召回率：降低threshold</h3><ul>
 <li>$TP/TP+FN$</li>
 <li>在所有正类别中，模型正确地识别出了多少？</li>
 <li>直觉：是否漏掉了任何“狼来了”的情况？，召回率越低，漏掉的垃圾邮件多，漏掉的性肿瘤越多。召回率越高，漏掉的垃圾邮件越少，漏掉的恶性瘤越少。</li>
 <li>改变对阈值的影响<ul>
 <li>变高：阈值变低</li>
-<li>变低：阈值变高<h3 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h3></li>
+<li>变低：阈值变高</li>
 </ul>
 </li>
 </ul>
-<ol>
+<h3 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h3><ol>
 <li>精确率和召回率<strong>一般</strong>是此消彼长的状态</li>
 <li>垃圾邮件预测 与 肿瘤预测是两个相反的例子<ul>
 <li>垃圾邮件预测对召回率要求低，因为要求不能将工作邮件误判为垃圾件</li>
 <li>肿瘤预测中对召回率要求高，因为不能漏判恶性肿瘤</li>
 </ul>
 </li>
-<li>阈值降低：TP和FP都会增加，FN,TN都会减小，所以召回率变高，精确<strong>可能</strong>变低 <h3 id="ROC"><a href="#ROC" class="headerlink" title="ROC"></a>ROC</h3></li>
-<li>ROC 曲线用于绘制<strong>采用不同分类阈值</strong>时的 TPR 与 FPR。降低分类值会导致将更多样本归为正类别，从而增加假正例和真正例的个数，增加FP和TPR<h3 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h3></li>
+<li>阈值降低：TP和FP都会增加，FN,TN都会减小，所以召回率变高，精确<strong>可能</strong>变低 </li>
+</ol>
+<h3 id="ROC"><a href="#ROC" class="headerlink" title="ROC"></a>ROC</h3><ol>
+<li>ROC 曲线用于绘制<strong>采用不同分类阈值</strong>时的 TPR 与 FPR。降低分类值会导致将更多样本归为正类别，从而增加假正例和真正例的个数，增加FP和TPR</li>
+</ol>
+<h3 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h3><ol>
 <li>一种会考虑所有可能分类阈值的评估指标。</li>
 <li>AUC还有另一种解释，就是测试任意给一个正类样本和一个负类样本，正样本的score多大的概率大于负类样本的score。（BPR文章中AUC用到的式）</li>
 <li>计算方法<ul>
