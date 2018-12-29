@@ -4,9 +4,8 @@ date: 2018/12/20 21:14:00
 updated: 2018/12/20 21:14:00
 categories:
 - python
-- sparse matrix
-- scipy.sparse
-- tensorflow sparse tensor
+- [sparse matrix,scipy.sparse]
+- [sparse matrix,tensorflow sparse tensor]
 ---
 
 scipy.sparse 提供了稀疏矩阵的操作，稀疏数据使用传统的存储方式总会有各种各样的缺点，而直接用sparse的方式进行存储和操作，使得代码编写便捷，并且大大提高了程序运行性能，本文旨在总结学习如何使用Python的scipy.sparse库与TensorFlow进行稀疏矩阵存储，运算等操作。
